@@ -48,28 +48,61 @@
     }
 
     .typewriter {
-      display: inline-block;
-      overflow: hidden;
-      border-right: .15em solid var(--text-color);
-      white-space: nowrap;
-      animation:
-        typing 4s steps(40, end),
-        blink-caret 0.75s step-end infinite;
       font-size: 1.2rem;
       font-style: italic;
       margin: 1rem auto 2rem;
-      width: 100%;
-      max-width: 500px;
+      color: var(--text-color);
+      max-width: 90%;
     }
 
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
+    .card {
+      position: relative;
+      background-color: var(--card-bg);
+      border-radius: 10px;
+      padding: 1rem;
+      max-width: 300px;
+      width: 90%;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      text-align: left;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1s ease forwards;
+      transition: 0.3s;
+      overflow: hidden;
     }
 
-    @keyframes blink-caret {
-      from, to { border-color: transparent }
-      50% { border-color: var(--text-color) }
+    .card::before {
+      content: '';
+      position: absolute;
+      top: var(--y, 0%);
+      left: var(--x, 0%);
+      width: 150%;
+      height: 150%;
+      background: radial-gradient(circle at center, rgba(255,64,129,0.3), transparent 60%);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      z-index: 1;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+    .card:nth-child(1) { animation-delay: 0.2s; }
+    .card:nth-child(2) { animation-delay: 0.4s; }
+    .card:nth-child(3) { animation-delay: 0.6s; }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card h3 {
+      margin-top: 0;
     }
 
     .socials a {
@@ -99,39 +132,6 @@
       padding: 0 1rem;
     }
 
-    .card {
-      background-color: var(--card-bg);
-      border-radius: 10px;
-      padding: 1rem;
-      max-width: 300px;
-      width: 90%;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      text-align: left;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeIn 1s ease forwards;
-    }
-
-    .card:hover {
-      transform: scale(1.03);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-    }
-
-    .card:nth-child(1) { animation-delay: 0.2s; }
-    .card:nth-child(2) { animation-delay: 0.4s; }
-    .card:nth-child(3) { animation-delay: 0.6s; }
-
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .card h3 {
-      margin-top: 0;
-    }
-
     footer {
       margin-top: 4rem;
       padding: 1rem;
@@ -159,7 +159,6 @@
 
       .typewriter {
         font-size: 1rem;
-        max-width: 90%;
       }
 
       .tech-icons span {
@@ -180,7 +179,7 @@
   <header>
     <img class="panda" src="https://c.tenor.com/QJP_QPYxoPsAAAAC/wave-panda.gif" alt="Panda waving" />
     <h1>Hi, I'm Manvith (aka Gods_Robot) 🤖</h1>
-    <div class="typewriter">Just a noob coder trying to automate the universe... one bug at a time.</div>
+    <div id="typewriter-text" class="typewriter"></div>
   </header>
 
   <section class="intro">
@@ -208,7 +207,6 @@
       <span>Python</span>
       <span>GitHub</span>
       <span>SQL</span>
-      <!-- Add more logos/icons here -->
     </div>
   </section>
 
@@ -248,6 +246,32 @@
     function toggleTheme() {
       document.body.classList.toggle('light');
     }
+
+    // Typewriter
+    const text = "Just a noob coder trying to automate the universe... one bug at a time.";
+    let i = 0;
+    const typeTarget = document.getElementById("typewriter-text");
+
+    function typeWriter() {
+      if (i < text.length) {
+        typeTarget.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 50);
+      }
+    }
+    typeWriter();
+
+    // Mouse glow effect on cards
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        card.style.setProperty('--x', `${x}%`);
+        card.style.setProperty('--y', `${y}%`);
+      });
+    });
   </script>
 </body>
 </html>
+
