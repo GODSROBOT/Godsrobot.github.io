@@ -6,64 +6,162 @@
   <title>Gods_Robot - Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg-color: #0e0e0e;
+      --text-color: #ffffff;
+      --accent-color: #ff4081;
+      --card-bg: #222;
+    }
+
+    body.light {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+      --card-bg: #f1f1f1;
+    }
+
+    * {
+      box-sizing: border-box;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
     body {
       font-family: 'Orbitron', sans-serif;
-      background-color: #0e0e0e;
-      color: #ffffff;
+      background-color: var(--bg-color);
+      color: var(--text-color);
       margin: 0;
       padding: 0;
       text-align: center;
     }
+
     header {
       padding: 2rem 1rem;
     }
+
     img.panda {
       width: 150px;
+      max-width: 90%;
     }
+
     h1 {
       font-size: 2.5rem;
       margin-top: 1rem;
     }
+
     .intro {
       max-width: 800px;
       margin: 2rem auto;
       padding: 0 1rem;
     }
+
+    .typewriter {
+      font-size: 1.2rem;
+      font-style: italic;
+      border-right: 2px solid var(--text-color);
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 4s steps(50, end) forwards, blink 0.8s step-end infinite;
+      margin: 0 auto 1rem;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      from, to { border-color: transparent }
+      50% { border-color: var(--text-color) }
+    }
+
     .socials a {
       margin: 0 1rem;
       text-decoration: none;
-      color: #ff4081;
+      color: var(--accent-color);
       font-weight: bold;
     }
+
     .section {
       margin: 3rem 0;
     }
+
     .tech-icons span {
       display: inline-block;
       margin: 0.5rem;
-      background: #222;
+      background: var(--card-bg);
       padding: 0.5rem 1rem;
       border-radius: 10px;
     }
+
+    .projects {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 0 1rem;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border-radius: 10px;
+      padding: 1rem;
+      max-width: 300px;
+      width: 90%;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      text-align: left;
+    }
+
+    .card h3 {
+      margin-top: 0;
+    }
+
     footer {
       margin-top: 4rem;
       padding: 1rem;
       font-size: 0.8rem;
-      color: #888;
+      color: gray;
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.5rem 1rem;
+      background: var(--card-bg);
+      color: var(--text-color);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+      .tech-icons span {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+      }
+      .theme-toggle {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+      }
     }
   </style>
 </head>
 <body>
+  <button class="theme-toggle" onclick="toggleTheme()">🌓 Toggle Theme</button>
+
   <header>
     <img class="panda" src="https://c.tenor.com/QJP_QPYxoPsAAAAC/wave-panda.gif" alt="Panda waving" />
     <h1>Hi, I'm Manvith (aka Gods_Robot) 🤖</h1>
-    <p><em>Just a noob coder trying to automate the universe... one bug at a time.</em></p>
+    <div class="typewriter">Just a noob coder trying to automate the universe... one bug at a time.</div>
   </header>
 
   <section class="intro">
     <h2>💡 About Me</h2>
     <p>
-      Ever since I Started Seeing Sci-Fi Movies like Pacific rim, Ironman, enthiran Chitti The Robot (yes, the robot), I knew I wasn't made to just do NEET attempts.<br/>
+      Ever since I Started Seeing Sci-Fi Movies like Pacific Rim, Iron Man, Enthiran Chitti The Robot (yes, the robot), I knew I wasn't made to just do NEET attempts.<br/>
       I'm here to build the next-gen AI and Robotics revolution. Because if Iron Man had J.A.R.V.I.S.,
       then India deserves something cooler — and way more dramatic.
     </p>
@@ -72,8 +170,8 @@
   <section class="section">
     <h2>🔗 Connect With Me</h2>
     <div class="socials">
-      <a href="https://www.youtube.com/@ChappiWorks">YouTube</a>
-      <a href="https://discord.com/invite/FfarQVQst7">Discord</a>
+      <a href="https://www.youtube.com/@ChappiWorks" target="_blank">YouTube</a>
+      <a href="https://discord.com/invite/FfarQVQst7" target="_blank">Discord</a>
     </div>
   </section>
 
@@ -85,6 +183,25 @@
       <span>Python</span>
       <span>GitHub</span>
       <span>SQL</span>
+      <!-- Add your logos/icons here -->
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>🛠️ Future Projects</h2>
+    <div class="projects">
+      <div class="card">
+        <h3>NeuroTrade 🤖📈</h3>
+        <p>AI that trades smarter than your dad’s financial advisor. Stocks, crypto, coffee futures — you name it.</p>
+      </div>
+      <div class="card">
+        <h3>Chitti 2.0 🤖🇮🇳</h3>
+        <p>India’s answer to humanoid robotics. Because why should Hollywood have all the fun?</p>
+      </div>
+      <div class="card">
+        <h3>RoboTalk 💬</h3>
+        <p>AI chatbot that can explain quantum physics and roast you at the same time.</p>
+      </div>
     </div>
   </section>
 
@@ -101,5 +218,11 @@
     🚧 Under Development — because even Elon Musk started somewhere.<br/>
     Designed with ❤️ by Manvith (Gods_Robot)
   </footer>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('light');
+    }
+  </script>
 </body>
 </html>
