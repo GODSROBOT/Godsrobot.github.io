@@ -47,21 +47,19 @@
       margin-top: 1rem;
     }
 
-    .intro {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
     .typewriter {
+      display: inline-block;
+      overflow: hidden;
+      border-right: .15em solid var(--text-color);
+      white-space: nowrap;
+      animation:
+        typing 4s steps(40, end),
+        blink-caret 0.75s step-end infinite;
       font-size: 1.2rem;
       font-style: italic;
-      border-right: 2px solid var(--text-color);
-      white-space: nowrap;
-      overflow: hidden;
-      width: 0;
-      animation: typing 4s steps(50, end) forwards, blink 0.8s step-end infinite;
-      margin: 0 auto 1rem;
+      margin: 1rem auto 2rem;
+      width: 100%;
+      max-width: 500px;
     }
 
     @keyframes typing {
@@ -69,7 +67,7 @@
       to { width: 100% }
     }
 
-    @keyframes blink {
+    @keyframes blink-caret {
       from, to { border-color: transparent }
       50% { border-color: var(--text-color) }
     }
@@ -109,6 +107,25 @@
       width: 90%;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       text-align: left;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+    .card:nth-child(1) { animation-delay: 0.2s; }
+    .card:nth-child(2) { animation-delay: 0.4s; }
+    .card:nth-child(3) { animation-delay: 0.6s; }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .card h3 {
@@ -132,16 +149,24 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      z-index: 1000;
     }
 
     @media (max-width: 600px) {
       h1 {
         font-size: 1.8rem;
       }
+
+      .typewriter {
+        font-size: 1rem;
+        max-width: 90%;
+      }
+
       .tech-icons span {
         font-size: 0.9rem;
         padding: 0.4rem 0.8rem;
       }
+
       .theme-toggle {
         padding: 0.4rem 0.8rem;
         font-size: 0.8rem;
@@ -183,7 +208,7 @@
       <span>Python</span>
       <span>GitHub</span>
       <span>SQL</span>
-      <!-- Add your logos/icons here -->
+      <!-- Add more logos/icons here -->
     </div>
   </section>
 
