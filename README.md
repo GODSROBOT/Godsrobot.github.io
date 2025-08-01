@@ -8,8 +8,6 @@
 ---
 
 ## 🔗 Socials
-[![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?logo=YouTube&logoColor=white)](https://www.youtube.com/@ChappiWorks) 
-[![Discord](https://img.shields.io/badge/Discord-587DF2.svg?logo=Discord&logoColor=white)](https://discord.com/invite/FfarQVQst7)
 
 ---
 
@@ -18,9 +16,8 @@
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=flat&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=flat&logo=css3&logoColor=white)
 ![Lua](https://img.shields.io/badge/lua-%232C2D72.svg?style=flat&logo=lua&logoColor=white)
-![Unity](https://img.shields.io/badge/Unity-%2320232a.svg?style=flat&logo=unity&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?style=flat&logo=github&logoColor=white)
-![Adobe Premiere Pro](https://img.shields.io/badge/adobepremierepro-%2331A8FF.svg?style=flat&logo=adobepremierepro&logoColor=white)
+![Python](https://img.shields.io/badgePython-%23121011.svg?style=flat&logo=python&logoColor=white)
 
 ---
 
