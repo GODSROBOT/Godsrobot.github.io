@@ -46,15 +46,4 @@
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=GODSROBOT&theme=vision-friendly-dark&hide_border=false&layout=compact)
 -->
 
----
-
-## 🎯 Goals for 2025
-- ☑️ Become a Python Pro (especially with real-time bots)
-- ☑️ Deploy full-stack apps with login/auth & databases
-- ☑️ Launch my own automation tool for game scripting
-- ☐ Contribute to open-source Lua or Python projects
-- ☐ Build a tech YouTube or Blog series
-
----
-
 > *"Keep breaking stuff till it works. That’s how legends are built."* 🚀
